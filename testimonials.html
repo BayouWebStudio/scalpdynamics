@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reviews &#x2014; Joseph Kintz</title>
-  <meta name="description" content="Client reviews and testimonials for Joseph Kintz in Manly Beach, Sydney Australia.">
+  <title>Reviews &#x2014; ScalpDynamics</title>
+  <meta name="description" content="Client reviews and testimonials for ScalpDynamics in Manly Beach, Sydney Australia.">
   <link rel="canonical" href="https://eternowebstudio.com/scalpdynamics/testimonials.html">
-  <meta property="og:title" content="Reviews &#x2014; Joseph Kintz">
+  <meta property="og:title" content="Reviews &#x2014; ScalpDynamics">
   <meta property="og:image" content="https://eternowebstudio.com/scalpdynamics/img/1.jpg">
   <meta property="og:url" content="https://eternowebstudio.com/scalpdynamics/testimonials.html">
   <meta property="og:type" content="website">
@@ -16,12 +16,12 @@
   <style>
     
     :root {
-      --black: #f5f0e8;
-      --charcoal: #ffffff;
-      --gold: #B8942F;
-      --white: #1a1a1a;
-      --dim: #1a1a1a99;
-      --border: #ffffff;
+      --black: #080808;
+      --charcoal: #111111;
+      --gold: #c0c0c0;
+      --white: #f5f5f0;
+      --dim: #888;
+      --border: rgba(255,255,255,0.07);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -90,10 +90,10 @@
       font-family: 'Inter', sans-serif;
       font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
       text-decoration: none; padding: 14px 22px; border-radius: 2px;
-      box-shadow: 0 4px 24px rgba(212,165,116,0.35);
+      box-shadow: 0 4px 24px rgba(192,192,192,0.35);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .book-float:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,165,116,0.5); }
+    .book-float:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(192,192,192,0.5); }
     /* FADE-UP ANIMATIONS */
     .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -141,49 +141,60 @@
     /* &#x2500;&#x2500; LAYOUT OVERRIDES &#x2500;&#x2500; */
     /* Each variant gets unique CSS that overrides common defaults */
 
-    /* SPLIT LAYOUT: 50/50 hero, masonry gallery */
+    /* SHOWCASE LAYOUT: gallery-first hero, bold type, featured tiles */
     .hero {
-      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-      padding: 0; position: relative; overflow: hidden;
-      align-items: stretch;
+      min-height: auto; padding: 0; position: relative;
+      display: flex; flex-direction: column;
     }
-    .hero-image-panel {
+    .hero-scroll-gallery {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; height: 65vh;
+      scrollbar-width: none;
+    }
+    .hero-scroll-gallery::-webkit-scrollbar { display: none; }
+    .hero-scroll-gallery .slide-item {
+      flex: 0 0 85vw; scroll-snap-align: start;
       position: relative; overflow: hidden;
-      background-image: url('img/1.jpg');
-      background-size: cover; background-position: center;
+      margin-right: 4px;
     }
-    .hero-image-panel::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent 50%, var(--black) 100%);
+    .hero-scroll-gallery .slide-item img {
+      width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);
     }
-    .hero-content-panel {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 60px 72px 60px 60px; position: relative;
+    .hero-scroll-gallery .slide-item .slide-caption {
+      position: absolute; bottom: 24px; left: 24px;
+      color: #fff; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     }
-    .hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    h1 {
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      font-weight: 200; line-height: 0.92;
-      margin-bottom: 24px;
+    .hero-showcase-title {
+      padding: 48px 72px; text-align: center;
     }
-    .hero-sub { font-size: 0.88rem; color: var(--dim); max-width: 380px; line-height: 1.8; margin-bottom: 40px; }
-    .btn-gold { border-radius: 6px; }
-    .btn-outline { border-radius: 6px; }
-    .book-float { border-radius: 6px; }
-    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0px; }
+    .hero-showcase-title h1 {
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 500; line-height: 0.85; letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .hero-showcase-title .hero-eyebrow {
+      letter-spacing: 0.32em; margin-bottom: 12px;
+    }
+    .hero-showcase-title .hero-sub {
+      max-width: 520px; margin: 0 auto 36px;
+      font-size: 0.85rem; line-height: 1.7;
+    }
+    .gallery-section { padding: 48px 24px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0px; }
+    .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 2/1; }
     .gallery-item { aspect-ratio: auto; }
-    .gallery-item img { height: auto; width: 100%; display: block; }
-    .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 16/9; }
-    .gallery-item:nth-child(4) { grid-column: span 2; aspect-ratio: 16/9; }
-    .gallery-item:nth-child(5) { aspect-ratio: 3/4; }
-    .gallery-item:nth-child(6) { aspect-ratio: 16/9; }
-    .about-preview { padding-left: 72px; padding-right: 72px; }
-    .about-grid { gap: 56px; }
+    .gallery-item img { height: 100%; width: 100%; }
+    .btn-gold { border-radius: 2px; font-size: 0.68rem; font-weight: 600; }
+    .btn-outline { border-radius: 2px; font-size: 0.68rem; font-weight: 600; }
+    .book-float { border-radius: 2px; font-weight: 600; }
+    h1 { font-weight: 500; }
+    h2 { font-weight: 400; letter-spacing: -0.01em; }
+    .section-label { letter-spacing: 0.32em; font-weight: 500; }
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-image-panel { min-height: 40vh; }
-      .hero-image-panel::after { background: linear-gradient(to top, var(--black) 0%, transparent 50%); }
-      .hero-content-panel { padding: 48px 24px; }
+      .hero-showcase-title { padding: 36px 24px; }
+      .hero-scroll-gallery { height: 50vh; }
+      .hero-showcase-title h1 { font-size: clamp(3rem, 12vw, 5rem); }
     }
 
   
@@ -217,16 +228,14 @@
 <body>
   
   <nav>
-    <a href="./index.html" class="nav-logo">Joseph Kintz</a>
+    <a href="./index.html" class="nav-logo">ScalpDynamics</a>
     <ul class="nav-links">
       <li><a href="./index.html" 
         data-en="Home" data-es="Home">Home</a></li>
       <li><a href="./about.html" 
         data-en="About" data-es="Sobre M&#xed;">About</a></li>
       <li><a href="./tattoos.html" 
-        data-en="Gallery" data-es="Tatuajes">Gallery</a></li>
-      <li><a href="./services.html" 
-        data-en="Services" data-es="Servicios">Services</a></li>
+        data-en="Tattoos" data-es="Tatuajes">Tattoos</a></li>
       <li><a href="./booking.html" 
         data-en="Booking" data-es="Reservaciones">Booking</a></li>
       <li><a href="./testimonials.html" class="active"
@@ -240,7 +249,7 @@
   <div class="mobile-menu">
     <a href="./index.html" data-en="Home" data-es="Inicio">Home</a>
     <a href="./about.html" data-en="About" data-es="Sobre M&#xed;">About</a>
-    <a href="./tattoos.html" data-en="Gallery" data-es="Tatuajes">Gallery</a>
+    <a href="./tattoos.html" data-en="Tattoos" data-es="Tatuajes">Tattoos</a>
     <a href="./booking.html" data-en="Booking" data-es="Reservaciones">Booking</a>
     <a href="./testimonials.html" data-en="Reviews" data-es="Testimonios">Reviews</a>
   </div>
@@ -259,7 +268,7 @@
 
     <div class="share-section fade-up">
       <h2 data-en="Share Your Experience" data-es="Comparte tu Experiencia">Share Your Experience</h2>
-      <p data-en="Got tattooed by Joseph Kintz? We'd love to hear your story." data-es="&#xbf;Te tatu&#xf3; Joseph Kintz? Nos encantar&#xed;a escuchar tu historia.">Got tattooed by Joseph Kintz? We'd love to hear your story.</p>
+      <p data-en="Got tattooed by ScalpDynamics? We'd love to hear your story." data-es="&#xbf;Te tatu&#xf3; ScalpDynamics? Nos encantar&#xed;a escuchar tu historia.">Got tattooed by ScalpDynamics? We'd love to hear your story.</p>
       <form onsubmit="submitTestimonial(event)">
         <div class="form-group">
           <label data-en="Your Name" data-es="Tu Nombre">Your Name</label>
@@ -302,18 +311,17 @@
 
   
   <footer>
-    <div class="footer-logo">Joseph Kintz</div>
+    <div class="footer-logo">ScalpDynamics</div>
     <div class="footer-links">
       <a href="./index.html">Home</a>
       <a href="./about.html">About</a>
-      <a href="./tattoos.html">Gallery</a>
-      <a href="./services.html">Services</a>
+      <a href="./tattoos.html">Tattoos</a>
       <a href="./booking.html">Booking</a>
       <a href="./testimonials.html">Testimonials</a>
       <a href="https://www.instagram.com/scalpdynamics" target="_blank" rel="noopener">Instagram</a>
       
     </div>
-    <div class="footer-copy">&#xa9; 2026 Joseph Kintz</div>
+    <div class="footer-copy">&#xa9; 2026 ScalpDynamics</div>
   </footer>
   
   <script>
