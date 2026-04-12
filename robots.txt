@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://scalpdynamics.com.au/sitemap.xml
